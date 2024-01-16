@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'net.researchgate.release' version '2.8.1'
+}
+
+group 'io.idziksmart'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+release {
+    failOnSnapshotDependencies = false
+    failOnCommitNeeded = false
+    pushReleaseVersionBranch = false
+    failOnUpdateNeeded = false
+    failOnUnversionedFiles = false
+    git {
+        requireBranch = 'master'
+    }
+}
